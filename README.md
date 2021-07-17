@@ -4,9 +4,9 @@
 
 ### The files copied are pasted into the android/data/com.example.loadasset/files folder.
 
-## This application was built as a freelance project on Fiverr.
+#### This application was built as a freelance project on Fiverr.
 
-## To contact me on fiverr, kindly visit my profile description.
+#### To contact me on fiverr, kindly visit my profile description.
 
 I would love if you:
 
