@@ -1,0 +1,2 @@
+hi hello
+this is the sample file to check functions of the app.
