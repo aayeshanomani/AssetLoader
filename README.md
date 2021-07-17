@@ -1,6 +1,6 @@
 # AssetLoader
 
-## An application built using Java to copy the files from the asset directory of the project folder and paste them to the internal storage of the app.An
+## An application built using Java to copy the files from the asset directory of the project folder and paste them to the internal storage of the app.
 
 ### The files copied are pasted into the android/data/com.example.loadasset/files folder.
 
