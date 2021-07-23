@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.codekidlabs.storagechooser.StorageChooser;
+import com.obsez.android.lib.filechooser.ChooserDialog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 import lib.folderpicker.FolderPicker;
 
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                Intent intent = new Intent(this, FolderPicker.class);
+                /*Intent intent = new Intent(this, FolderPicker.class);
                 // 1. Initialize dialog
                 final StorageChooser chooser = new StorageChooser.Builder()
                         // Specify context of the dialog
@@ -102,6 +104,36 @@ public class MainActivity extends AppCompatActivity {
                 chooser.setOnSelectListener(new StorageChooser.OnSelectListener() {
                     @Override
                     public void onSelect(String path) {
+                                                }
+                    }
+
+                });
+
+// 3. Display File Picker whenever you need to !
+                chooser.show();
+                //File outFile = new File(getExternalFilesDir(null), filename);
+
+            }
+
+
+
+
+    private void copyFile(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }*/
+
+
+        new ChooserDialog(MainActivity.this)
+                .withFilter(true, false)
+                .withStartFile("")
+                // to handle the result(s)
+                .withChosenListener(new ChooserDialog.Result() {
+                    @Override
+                    public void onChoosePath(String path, File pathFile) {
+                        Toast.makeText(MainActivity.this, "FOLDER: " + path, Toast.LENGTH_SHORT).show();
                         String[] files = null;
                         try {
                             files = assetManager.list("");
@@ -122,10 +154,7 @@ public class MainActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 in = null;
-                            }
-                            finally
-
-                            {
+                            } finally {
                                 if (in != null) {
                                     try {
                                         in.close();
@@ -143,29 +172,15 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             Log.d("path", path);
+
                         }
                     }
-
-                });
-
-// 3. Display File Picker whenever you need to !
-                chooser.show();
-                //File outFile = new File(getExternalFilesDir(null), filename);
-
-            }
-
-
-
-
-    private void copyFile(InputStream in, OutputStream out) throws IOException {
-        byte[] buffer = new byte[1024];
-        int read;
-        while ((read = in.read(buffer)) != -1) {
-            out.write(buffer, 0, read);
-        }
+                })
+                .build()
+                .show();
     }
 
-    @Override
+   /* @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
@@ -188,5 +203,5 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-    }
+    }*/
 }

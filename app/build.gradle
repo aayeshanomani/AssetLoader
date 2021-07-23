@@ -48,3 +48,31 @@ android {
 dependencies {
     implementation 'com.github.codekidX:storage-chooser:2.0.4.4'
 }
+
+android {
+    defaultConfig {
+        minSdkVersion 26
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+    // implementation 'com.github.hedzr:android-file-chooser:1.2.0-SNAPSHOT'
+    implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
+}
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.github.hedzr:android-file-chooser:devel-SNAPSHOT'
+}
+
